@@ -2,15 +2,22 @@ import React from 'react';
 import {
     Switch,
     Link,
-    Route
+    Route,
+    useLocation,
 } from "react-router-dom";
 import '../../App.css';
 import Education from '../Education/Education';
 import Jobs from '../Jobs/Jobs';
 import Portfolio from '../Portfolio/Portfolio';
 import Skills from '../Skills/Skills';
-
-function Layout() {
+import Aside from '../Aside/Aside';
+interface  PropsInterface {
+  history?: object,
+};
+function Layout (props:PropsInterface) {
+  console.log("props",props)
+  let location = useLocation();
+  console.log("location", location)
   return (
     <div className="app">
       <div className="app-wrapper">
@@ -25,31 +32,9 @@ function Layout() {
               </ul>
             </nav>
           </header>
-          <aside className="aside">
-            <div className="">
-              <div className="aside-content">
-                <div className="profile-image">
-                  <img src={process.env.PUBLIC_URL + '/assets/vector.png'} alt=""/>
-                  <img src={process.env.PUBLIC_URL + '/assets/vector-line1.png'} alt=""/>
-                  <img src={process.env.PUBLIC_URL + '/assets/vector-line2.png'} alt=""/>
-                  <img src={process.env.PUBLIC_URL + '/assets/profile-picture.png'} alt=""/>
-                </div>
-                <div className="profile-information">
-                  <h1>Luis Carlos Ariza</h1>
-                  <h3>Acerca de mi</h3>
-                  <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae ullamcorper nisi. In a ornare felis. Suspendisse tempor nisi ac lacus suscipit, ut elementum magna ullamcorper. Integer ultrices sem a sodales tincidunt.</p>
-                  <div className="profile-contact">
-                    <h3>Contacto</h3>
-                    <p><i><img src={process.env.PUBLIC_URL + '/assets/mobile.png'} alt=""/></i><span>+52 5552102230</span></p>
-                    <p><i><img src={process.env.PUBLIC_URL + '/assets/mail.png'} alt=""/></i><span>luis.carlos.ariza@gmail.com</span></p>
-                    <p><i><img src={process.env.PUBLIC_URL + '/assets/linkedin.png'} alt=""/></i><span>www.linkedin.com/in/carlosariza</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-          <article className="main">
-            <div className="wrapper white">
+          <Aside />
+          <main className="main">
+            <div className={`${location.pathname === '/skills' ? 'wrapper-no-p white': 'wrapper white'}`}>
                 <Switch>
                     <Route exact path="/education" >
                         <Education />
@@ -65,7 +50,7 @@ function Layout() {
                     </Route>
                 </Switch>
             </div>
-          </article>
+          </main>
           <footer className="footer"></footer>
         </div>
       </div>
