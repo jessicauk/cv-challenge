@@ -1,0 +1,10 @@
+.interestes {
+    min-height: 284px;
+    background: var(--pink);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+.interestes img {
+}

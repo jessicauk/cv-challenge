@@ -1,24 +1,27 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+    Switch,
+    Link,
+    Route
 } from "react-router-dom";
-import './App.css';
-import Layout from './components/Layout/Layout';
+import '../../App.css';
+import Education from '../Education/Education';
+import Jobs from '../Jobs/Jobs';
+import Portfolio from '../Portfolio/Portfolio';
+import Skills from '../Skills/Skills';
 
-function App() {
-  /* return (
+function Layout() {
+  return (
     <div className="app">
       <div className="app-wrapper">
         <div className="app-container">
           <header className="header">
             <nav>
               <ul>
-                <li>Educación</li>
-                <li>Experiencia</li>
-                <li>Portafolio</li>
-                <li>Conocimiento y Habilidades</li>
+                <li><Link to={`/education`}>Educación</Link></li>
+                <li><Link to={`/jobs`}>Experiencia</Link></li>
+                <li><Link to={`/portfolio`}>Portafolio</Link></li>
+                <li><Link to={`/skills`}>Conocimientos y habilidades</Link></li>
               </ul>
             </nav>
           </header>
@@ -47,26 +50,27 @@ function App() {
           </aside>
           <article className="main">
             <div className="wrapper white">
-              <Timeline />
-              <Licences />
+                <Switch>
+                    <Route exact path="/education" >
+                        <Education />
+                    </Route>
+                    <Route exact path="/jobs" >
+                        <Jobs />
+                    </Route>
+                    <Route exact path="/portfolio" >
+                        <Portfolio />
+                    </Route>
+                    <Route exact path="/skills" >
+                        <Skills />
+                    </Route>
+                </Switch>
             </div>
           </article>
-          <footer className="footer white">footer</footer>
+          <footer className="footer"></footer>
         </div>
       </div>
     </div>
-  ); */
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/">
-            <Layout/>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  )
+  );
 }
 
-export default App;
+export default Layout;

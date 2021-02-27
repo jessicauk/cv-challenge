@@ -1,0 +1,102 @@
+.timeline-container {
+    margin-bottom: 5em;
+}
+.timeline {
+    display: flex;
+    position: relative;
+    list-style: none;
+    flex-direction: column;
+    padding: 20px 20px;
+}
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.timeline .timeline-item::before {
+    background: #dadee4;
+    content: "";
+    height: 100%;
+    left: 21px;
+    position: absolute;
+    top: 60px;
+    width: 2px;
+    z-index: 1;
+}
+
+.timeline .timeline-item .icon {
+    position: absolute;
+    left: 3px;
+    z-index: 1;
+}
+.badage {
+    box-sizing: border-box;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    border-radius: 500px;
+    vertical-align: middle;
+    /* background: #1e87f0;
+    color: #fff; */
+    font-size: .875rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.timeline .timeline-item .icon .badage {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+.timeline .timeline-item .content {
+    display: flex;
+    margin: 20px 0px 20px 0px;
+    max-height: 300px;
+    padding: .0 0 0 1rem;
+}
+
+.timeline .timeline-item .content h1 {
+    font-size: 20px;
+    text-align: left;
+}
+.timeline .description p {
+    text-align: justify;
+}
+.timeline .timeline-item .content span {
+    color: var(--gray);
+    font-size: 16px;
+    margin-left: 5px;
+}
+.timeline .timeline-item .content span {
+    color: var(--gray);
+    font-size: 16px;
+    margin-left: 5px;
+}
+.timeline .timeline-item .content .date-content {
+    min-width: 150px;
+    margin-top: 10px;
+    text-align: center;
+}
+.timeline .date-content .date {
+    text-align: center;
+}
+.timeline .date-content .caption {
+    color: var(--red);
+    text-align: justify;
+    margin-left: 4em;
+}
+
+.timeline .timeline-item .content .description span {
+    margin-left: 16px;
+}
+.timeline-item .content .description h1 {
+    margin-bottom: 16px;
+}
+.timeline-item .description p {
+    font-size: 14px;
+    line-height: 20px;
+}
+.timeline-item .description .company {
+    font-size: 16px;
+    margin: 9px 0 7px 0;
+}
