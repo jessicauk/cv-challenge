@@ -1,0 +1,260 @@
+{
+  "profile": {
+    "picture": "http://placehold.it/32x32",
+    "firstName": "Bruce",
+    "lastName": "Kaufman",
+    "birthDate": "Wed Jan 11 2006 09:06:17 GMT+0000 (UTC)",
+    "aboutMe": {
+      "es": "Eiusmod nostrud consectetur qui nulla magna nulla enim. Anim incididunt amet mollit ipsum eiusmod ad nostrud occaecat nisi irure esse ut ipsum culpa. Mollit et veniam aliqua laboris quis reprehenderit. Fugiat consectetur nulla labore commodo magna anim exercitation consequat exercitation do mollit.",
+      "en": "Aliqua ea proident adipisicing exercitation esse dolor nulla officia consectetur aliqua veniam. Quis amet fugiat pariatur et cillum officia velit ipsum irure. Minim duis ex esse excepteur cillum quis Lorem sit tempor elit anim ullamco velit pariatur. Cillum irure eu proident dolore dolor cupidatat est cupidatat aute magna minim anim amet cillum. Non veniam quis irure ipsum. Duis amet ex culpa enim. Cupidatat amet labore laboris pariatur."
+    },
+    "contact": {
+      "phone": "(954) 495-3327",
+      "email": "bruce.kaufman@test.test",
+      "linkedin": "https://www.linkedin.com/feed/"
+    }
+  },
+  "education": [
+    {
+      "id": 0,
+      "school": "ex ut",
+      "description": {
+        "es": "Dolore sit sit ipsum incididunt excepteur voluptate non cillum sit mollit labore culpa nostrud.",
+        "en": "Esse amet sit ipsum excepteur ut proident officia quis enim tempor aliqua minim."
+      },
+      "location": "Troy, Utah",
+      "dateStart": "Wed Nov 22 2017 07:30:16 GMT+0000",
+      "dateEnd": "Wed Nov 23 2016 07:30:16 GMT+0000"
+    },
+    {
+      "id": 1,
+      "school": "exercitation do",
+      "description": {
+        "es": "Aute quis do culpa consequat fugiat esse ut cupidatat culpa enim.",
+        "en": "Laborum eu tempor do ad."
+      },
+      "location": "Dubois, Ohio",
+      "dateStart": "Sat Nov 26 2016 07:30:16 GMT+0000",
+      "dateEnd": "Mon Nov 23 2015 07:30:16 GMT+0000"
+    },
+    {
+      "id": 2,
+      "school": "consequat voluptate aute",
+      "description": {
+        "es": "Labore eiusmod ea duis occaecat esse ad consequat.",
+        "en": "Laboris esse laboris fugiat deserunt voluptate id eu eiusmod consectetur anim deserunt."
+      },
+      "location": "Kersey, West Virginia",
+      "dateStart": "Thu Nov 26 2015 07:30:16 GMT+0000",
+      "dateEnd": "Sat Nov 22 2014 07:30:16 GMT+0000"
+    }
+  ],
+  "certifications": [
+    {
+      "id": 0,
+      "key": "5fc742880f9db7ee180bb6cb",
+      "title": {
+        "es": "irure mollit exercitation aliqua",
+        "en": "quis ex voluptate"
+      },
+      "description": {
+        "es": "Ut reprehenderit voluptate cillum enim nulla commodo pariatur irure.",
+        "en": "Laboris cillum do est anim ex consectetur elit qui eiusmod officia esse anim in."
+      },
+      "registred": "Wed Nov 27 2019 07:30:16 GMT+0000"
+    },
+    {
+      "id": 1,
+      "key": "5fc742888faa5953c2540d8b",
+      "title": {
+        "es": "sint velit incididunt",
+        "en": "veniam sit sunt"
+      },
+      "description": {
+        "es": "Lorem Lorem ut laborum adipisicing dolore quis nostrud magna ad eu proident quis eu aliqua.",
+        "en": "Nulla incididunt culpa tempor adipisicing duis officia."
+      },
+      "registred": "Tue Nov 27 2018 07:30:16 GMT+0000"
+    },
+    {
+      "id": 2,
+      "key": "5fc74288f227dd0e4deb9b84",
+      "title": {
+        "es": "deserunt nulla Lorem sit",
+        "en": "in aute et excepteur proident mollit"
+      },
+      "description": {
+        "es": "Laborum in voluptate culpa laborum anim fugiat pariatur.",
+        "en": "Laborum dolore proident deserunt eu dolor non."
+      },
+      "registred": "Fri Nov 24 2017 07:30:16 GMT+0000"
+    },
+    {
+      "id": 3,
+      "key": "5fc74288db5900b8c650ef80",
+      "title": {
+        "es": "proident eiusmod sunt commodo",
+        "en": "aliquip anim sunt deserunt in aliquip"
+      },
+      "description": {
+        "es": "Non dolore reprehenderit ex esse laborum velit pariatur voluptate laborum.",
+        "en": "Duis Lorem elit nisi pariatur velit."
+      },
+      "registred": "Tue Nov 22 2016 07:30:16 GMT+0000"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 0,
+      "title": {
+        "es": "Front-end developer",
+        "en": "Desarrollador front-end"
+      },
+      "company": "Xsports",
+      "dateStart": "Mon Nov 25 2019 07:30:16 GMT+0000",
+      "dateEnd": null
+    },
+    {
+      "id": 1,
+      "title": {
+        "es": "Back-end developer",
+        "en": "Desarrollador back-end"
+      },
+      "company": "Scenty",
+      "dateStart": "Tue Nov 27 2018 07:30:16 GMT+0000",
+      "dateEnd": "Fri Nov 24 2017 07:30:16 GMT+0000"
+    },
+    {
+      "id": 2,
+      "title": {
+        "es": "Fullstack developer",
+        "en": "Desarrollador fullstack"
+      },
+      "company": "Ecrater",
+      "dateStart": "Fri Nov 24 2017 07:30:16 GMT+0000",
+      "dateEnd": "Thu Nov 24 2016 07:30:16 GMT+0000"
+    }
+  ],
+  "briefcase": [
+    {
+      "id": 0,
+      "image": "http://lorempixel.com/640/360/",
+      "title": {
+        "es": "sint ullamco id",
+        "en": "fugiat sint laborum"
+      },
+      "description": {
+        "es": "Laborum incididunt excepteur veniam in dolore culpa commodo eiusmod excepteur in. Sit officia ullamco ipsum laboris pariatur nulla occaecat proident duis id exercitation cupidatat. Ex do non do irure labore nisi aliquip nisi adipisicing et cupidatat eiusmod magna qui. Minim dolore magna veniam est aliqua anim irure cupidatat ad aliquip nisi.",
+        "en": "Quis elit quis voluptate Lorem dolore tempor cillum excepteur duis. Esse ea mollit ex occaecat elit duis commodo anim exercitation ex tempor enim exercitation. Lorem nostrud consequat ad aute eu duis eu ex exercitation anim ut adipisicing."
+      },
+      "date": "Wed Jul 19 2017 12:07:28 GMT+0000 (UTC)"
+    },
+    {
+      "id": 1,
+      "image": "http://lorempixel.com/640/360/",
+      "title": {
+        "es": "et velit et ad eu",
+        "en": "et duis elit consectetur quis ad"
+      },
+      "description": {
+        "es": "Excepteur incididunt in eu aliqua amet laborum sit commodo ex tempor do. Exercitation magna esse exercitation enim. Ullamco sint consequat culpa dolore elit proident minim eiusmod proident.",
+        "en": "Mollit in culpa aute excepteur commodo aliqua sit pariatur tempor. Irure nostrud labore adipisicing proident fugiat adipisicing ullamco et deserunt do irure est laborum. Cupidatat nostrud ipsum id labore adipisicing cupidatat irure anim do. Laboris consequat excepteur est anim ullamco nulla qui sit esse consectetur cillum sint adipisicing nulla. Ullamco eu esse aute ullamco occaecat amet. Non incididunt mollit ipsum Lorem incididunt consectetur sint id do. Ea exercitation exercitation aliquip occaecat nisi veniam amet voluptate cillum commodo."
+      },
+      "date": "Wed Nov 17 2010 02:29:14 GMT+0000 (UTC)"
+    },
+    {
+      "id": 2,
+      "image": "http://lorempixel.com/640/360/",
+      "title": {
+        "es": "pariatur exercitation et",
+        "en": "commodo incididunt magna eiusmod"
+      },
+      "description": {
+        "es": "Nisi sit et labore irure occaecat enim veniam ea ex eiusmod Lorem nisi qui. Consectetur ut cillum tempor mollit aute elit deserunt occaecat. Ex officia consequat quis nulla officia in nisi.",
+        "en": "Reprehenderit quis laboris excepteur est elit laborum elit Lorem. In ea consectetur qui velit adipisicing elit laborum irure ea enim labore. Esse est proident laborum aute amet dolor commodo occaecat voluptate ea nisi consectetur reprehenderit. Elit irure mollit consectetur magna do adipisicing tempor. Minim aute aliquip minim aliqua excepteur. Ad sint est non ut deserunt sit cupidatat eiusmod laborum nisi officia voluptate. Consectetur ad excepteur dolor amet in labore mollit."
+      },
+      "date": "Fri Sep 26 2014 19:32:48 GMT+0000 (UTC)"
+    },
+    {
+      "id": 3,
+      "image": "http://lorempixel.com/640/360/",
+      "title": {
+        "es": "tempor anim ad do in",
+        "en": "duis non amet adipisicing"
+      },
+      "description": {
+        "es": "Laboris velit exercitation commodo esse laboris proident nostrud. Id consequat officia ad ipsum magna aliqua proident aliquip duis sit ut exercitation reprehenderit. Reprehenderit culpa Lorem proident veniam in duis tempor ipsum mollit cupidatat anim. Enim magna irure est eiusmod.",
+        "en": "Non fugiat esse sint ullamco. Lorem ea ut incididunt mollit minim exercitation tempor. Fugiat aute duis irure qui exercitation in. Nostrud laborum irure eiusmod do. Ut mollit incididunt ad culpa nisi enim nostrud veniam enim pariatur."
+      },
+      "date": "Sat Dec 30 2017 07:45:51 GMT+0000 (UTC)"
+    }
+  ],
+  "languages": [
+    {
+      "id": 0,
+      "label": {
+        "es": "Ingles",
+        "en": "English"
+      },
+      "percentage": 67
+    },
+    {
+      "id": 1,
+      "label": {
+        "es": "Aleman",
+        "en": "German"
+      },
+      "percentage": 90
+    },
+    {
+      "id": 2,
+      "label": {
+        "es": "Frances",
+        "en": "French"
+      },
+      "percentage": 52
+    }
+  ],
+  "skills": [
+    {
+      "id": 0,
+      "label": {
+        "es": "duis quis",
+        "en": "eiusmod"
+      },
+      "percentage": 55
+    },
+    {
+      "id": 1,
+      "label": {
+        "es": "qui adipisicing",
+        "en": "dolore elit"
+      },
+      "percentage": 72
+    },
+    {
+      "id": 2,
+      "label": {
+        "es": "dolor enim",
+        "en": "quis labore"
+      },
+      "percentage": 90
+    },
+    {
+      "id": 3,
+      "label": {
+        "es": "elit",
+        "en": "dolor laboris"
+      },
+      "percentage": 60
+    },
+    {
+      "id": 4,
+      "label": {
+        "es": "minim proident",
+        "en": "non"
+      },
+      "percentage": 59
+    }
+  ]
+}

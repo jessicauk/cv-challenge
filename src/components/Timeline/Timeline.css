@@ -52,7 +52,8 @@
     display: flex;
     margin: 20px 0px 20px 0px;
     max-height: 300px;
-    padding: .0 0 0 1rem;
+    padding: .0 0 0 2.5em;
+    flex-direction: column;
 }
 
 .timeline .timeline-item .content h1 {
@@ -73,17 +74,17 @@
     margin-left: 5px;
 }
 .timeline .timeline-item .content .date-content {
-    min-width: 150px;
-    margin-top: 10px;
-    text-align: center;
+    text-align: justify;
+    display: inline-block;
 }
+
 .timeline .date-content .date {
-    text-align: center;
+    display: inline-block;
 }
 .timeline .date-content .caption {
     color: var(--red);
-    text-align: justify;
-    margin-left: 4em;
+    display: inline-block;
+    margin-left: 0.5em;
 }
 
 .timeline .timeline-item .content .description span {
@@ -99,4 +100,25 @@
 .timeline-item .description .company {
     font-size: 16px;
     margin: 9px 0 7px 0;
+}
+@media screen and (min-width: 1024px) {
+    .timeline .timeline-item .content {
+        flex-direction: unset;
+        padding: .0 0 0 1.5em;
+    }
+    .timeline .timeline-item .content .date-content {
+        min-width: 150px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .timeline .date-content .date {
+        text-align: center;
+        display: block;
+    }
+    .timeline .date-content .caption {
+        color: var(--red);
+        text-align: justify;
+        margin-left: 4em;
+        display: block;
+    }
 }
