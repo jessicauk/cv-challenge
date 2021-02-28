@@ -1,12 +1,15 @@
 import React, {useEffect} from "react";
+import { PROFILE } from '../../utils/constants';
+import { get } from '../../utils/Functions';
 import "./Aside.css";
 
 function Aside() {
-
+  const getData = async () => {
+    const response = await get(PROFILE)
+    console.log('response here', response)
+  };
   useEffect(()=>{
-    fetch('http://localhost:3000/profile')
-    .then(response => {console.log(response)})
-    .then(data => console.log(data));
+    getData();
   },[])
   return (
     <aside className="aside">
