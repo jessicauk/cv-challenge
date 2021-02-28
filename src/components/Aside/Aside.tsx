@@ -1,79 +1,106 @@
-import React, {useEffect} from "react";
+/* import React from "react"; */
+import React, { useEffect, useState } from "react";
+import { PROFILE } from "../../utils/constants";
+import { get } from "../../utils/Requester";
 import "./Aside.css";
 
-function Aside() {
+export interface Translate {
+  en: string | undefined;
+  es: string | undefined;
+}
+interface Contact {
+  email: string | undefined;
+  linkedin: string | undefined;
+  phone: string | undefined;
+}
 
-  useEffect(()=>{
-    fetch('http://localhost:3000/profile')
-    .then(response => {console.log(response)})
-    .then(data => console.log(data));
-  },[])
+interface Profile {
+  picture: string | undefined;
+  firstName: string | undefined;
+  lastName: string | undefined;
+  contact: Contact;
+  aboutMe: Translate;
+}
+
+function Aside() {
+  const [data, setData] = useState<Profile>({
+    picture: '',
+    firstName: '',
+    lastName: '',
+    contact: {
+      email: '',
+      linkedin: '',
+      phone: '',
+    },
+    aboutMe: {
+      en: '',
+      es: '',
+    }
+  });
+
+  const getData = async () => {
+    const response = await get(PROFILE);
+    setData(response);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  const {email, linkedin, phone}  = data.contact;
+  const aboutMeTranslate  = data.aboutMe['es'];
+
   return (
     <aside className="aside">
-        <div className="aside-content">
-          <div className="profile-image">
-            <div className="background-img">
-              <img src={process.env.PUBLIC_URL + "/assets/vector.png"} alt="" />
-              <img
-                src={process.env.PUBLIC_URL + "/assets/vector-line1.png"}
-                alt=""
-              />
-              <img
-                src={process.env.PUBLIC_URL + "/assets/vector-line2.png"}
-                alt=""
-              />
-              <img
-                src={process.env.PUBLIC_URL + "/assets/blob-2.svg"}
-                alt=""
-              />
-            </div>
+      <div className="aside-content">
+        <div className="profile-image">
+          <div className="background-img">
+            <img src={process.env.PUBLIC_URL + "/assets/vector.png"} alt="" />
             <img
-              className="picture"
-              src={process.env.PUBLIC_URL + "/assets/profile-picture.png"}
+              src={process.env.PUBLIC_URL + "/assets/vector-line1.png"}
               alt=""
             />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/vector-line2.png"}
+              alt=""
+            />
+            <img src={process.env.PUBLIC_URL + "/assets/blob-2.svg"} alt="" />
           </div>
-          <div className="profile-information">
-            <h1>Luis Carlos Ariza</h1>
-            <h3>Acerca de mi</h3>
-            <p className="about">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque vitae ullamcorper nisi. In a ornare felis.
-              Suspendisse tempor nisi ac lacus suscipit, ut elementum magna
-              ullamcorper. Integer ultrices sem a sodales tincidunt.
+          <img className="picture" src={process.env.PUBLIC_URL + "/assets/profile-picture.png"} alt="" />
+        </div>
+        <div className="profile-information">
+          <h1>{data.firstName}</h1>
+          <h3>{data.lastName}</h3>
+          <p className="about">
+            {aboutMeTranslate}
+          </p>
+          <div className="profile-contact">
+            <h3>Contacto</h3>
+            <p>
+              <i>
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/mobile.png"}
+                  alt=""
+                />
+              </i>
+              <span>{phone}</span>
             </p>
-            <div className="profile-contact">
-              <h3>Contacto</h3>
-              <p>
-                <i>
-                  <img
-                    src={process.env.PUBLIC_URL + "/assets/mobile.png"}
-                    alt=""
-                  />
-                </i>
-                <span>+52 5552102230</span>
-              </p>
-              <p>
-                <i>
-                  <img
-                    src={process.env.PUBLIC_URL + "/assets/mail.png"}
-                    alt=""
-                  />
-                </i>
-                <span>luis.carlos.ariza@gmail.com</span>
-              </p>
-              <p>
-                <i>
-                  <img
-                    src={process.env.PUBLIC_URL + "/assets/linkedin.png"}
-                    alt=""
-                  />
-                </i>
-                <span>www.linkedin.com/in/carlosariza</span>
-              </p>
-            </div>
+            <p>
+              <i>
+                <img src={process.env.PUBLIC_URL + "/assets/mail.png"} alt="" />
+              </i>
+              <span>{email}</span>
+            </p>
+            <p>
+              <i>
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/linkedin.png"}
+                  alt=""
+                />
+              </i>
+              <span>{linkedin}</span>
+            </p>
           </div>
         </div>
+      </div>
     </aside>
   );
 }

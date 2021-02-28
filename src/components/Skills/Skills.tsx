@@ -1,12 +1,32 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { get } from "../../utils/Requester";
+import { SKILLS } from "../../utils/constants";
 import SkillList from "../SkillList/SkillList";
+import { Translate } from "../Aside/Aside";
+
 import "./Skills.css";
 
+export interface ArraySkills {
+  id?: number | undefined;
+  key?: number | undefined;
+  label: Translate;
+  percentage: number;
+};
+
 function Skills() {
+  const [dataSkills, setDataSkills] = useState<ArraySkills[]>([]);
+  const getDataSkills = async () => {
+    const response = await get(SKILLS);
+    setDataSkills(response);
+  };
+  useEffect(() => {
+    getDataSkills();
+  }, []);
   return (
     <>
-      <SkillList />
-      <SkillList />
+      <h1>Skills</h1>
+      <SkillList skills={dataSkills} />
+    
       <div className="interestes">
         <h2>Intereses</h2>
         <div className="icons">

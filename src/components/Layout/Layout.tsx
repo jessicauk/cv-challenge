@@ -15,9 +15,7 @@ interface  PropsInterface {
   history?: object,
 };
 function Layout (props:PropsInterface) {
-  console.log("props",props)
   let location = useLocation();
-  console.log("location", location)
   return (
     <div className="app">
       <div className="app-wrapper">
@@ -35,20 +33,20 @@ function Layout (props:PropsInterface) {
           <Aside />
           <main className="main">
             <div className={`${location.pathname === '/skills' ? 'wrapper-no-p white': 'wrapper white'}`}>
-                <Switch>
-                    <Route exact path="/education" >
-                        <Education />
-                    </Route>
-                    <Route exact path="/jobs" >
-                        <Jobs />
-                    </Route>
-                    <Route exact path="/portfolio" >
-                        <Portfolio />
-                    </Route>
-                    <Route exact path="/skills" >
-                        <Skills />
-                    </Route>
-                </Switch>
+                  <Switch>
+                      <Route exact path="/education" >
+                          <Education />
+                      </Route>
+                      <Route exact path="/jobs" >
+                          <Jobs />
+                      </Route>
+                      <Route exact path="/portfolio" >
+                          <Portfolio />
+                      </Route>
+                      <Route exact path="/skills" >
+                          <Skills />
+                      </Route>
+                  </Switch>
             </div>
           </main>
           <footer className="footer"></footer>
