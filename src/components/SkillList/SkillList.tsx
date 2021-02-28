@@ -1,9 +1,18 @@
 import React from "react";
+import { Translate } from "../Aside/Aside";
+import {ArraySkills} from '../Skills/Skills';
 import "./SkillList.css";
 
-function Skill() {
+interface PropsSkill{
+  key?: number | undefined;
+  id?: number | undefined;
+  label: string;
+  percentage: number;
+}
+
+const Skill:React.FC<PropsSkill> = ({label, percentage}) =>  {
   return <div className="skill-list-item">
-    <div className="name">Ingles</div>
+    <div className="name">{label}</div>
     <div className="bar-container">
       <div className="bar">
         <span className="bar-progress two-percent"></span>
@@ -12,14 +21,23 @@ function Skill() {
   </div>
 }
 
-function SkillList() {
+const SkillList:React.FC<any> = ({skills}) => {
   return (
     <div className="skill-list">
-      <h1>Idiomas</h1>
       <div className="skill-list-container">
-        <Skill />
-        <Skill />
-        <Skill />
+        {
+          Array.isArray(skills) &&
+          skills &&
+          skills.map((skill) => {
+            return (
+              <Skill 
+                key={skill.id} 
+                label={skill.label['es'] }
+                percentage={skill.percentage}
+              />
+            )
+          })
+        }
       </div>
     </div>
   );

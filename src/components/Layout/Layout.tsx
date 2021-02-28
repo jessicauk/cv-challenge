@@ -15,9 +15,7 @@ interface  PropsInterface {
   history?: object,
 };
 function Layout (props:PropsInterface) {
-  console.log("props",props)
   let location = useLocation();
-  console.log("location", location)
   return (
     <div className="app">
       <div className="app-wrapper">

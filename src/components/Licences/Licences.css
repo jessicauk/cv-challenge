@@ -1,9 +1,12 @@
+.licences {
+    margin-top: 5em;
+}
 .licences-container {
     padding: 20px 20px;
 }
 .licences-container .item{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .licences-container .title {
     text-align: justify;

@@ -43,6 +43,7 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
     "axios": "^0.21.1",
+    "moment": "^2.29.1",
     "react-router-dom": "^5.2.0"
   }
 }
