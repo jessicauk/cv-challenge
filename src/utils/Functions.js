@@ -1,9 +1,12 @@
-import moment from 'moment';
+import moment from "moment";
+import { EN, US } from "./constants";
+
 export const formatDate = (registred = "Tue Nov 27 2018 07:30:16 GMT+0000") => {
   const date = new Date(registred);
   const year = date.getFullYear();
   return `${year}`;
 };
+
 export const getDateFull = (dateFull = "") => {
   const date = dateFull ? new Date(dateFull) : new Date();
   const year = date.getFullYear();
@@ -11,28 +14,36 @@ export const getDateFull = (dateFull = "") => {
   const month = date.getMonth();
   return `${year}-${month}-${day}`;
 };
-export const monthPeriodDate = (startDate = "", endDate = "") => {
-    const result = [];
-    const dateStart = moment(endDate || new Date());
-    const dateEnd = moment(startDate || new Date());
 
-    while (dateStart.isBefore(dateEnd)) {
-        result.push(dateStart.format("YYYY-MM-01"));
-        dateStart.add(1, 'month');
-    }
+export const monthPeriodDate = (startDate = "", endDate = "") => {
+  const result = [];
+  const dateStart = moment(endDate || new Date());
+  const dateEnd = moment(startDate || new Date());
+
+  while (dateStart.isBefore(dateEnd)) {
+    result.push(dateStart.format("YYYY-MM-01"));
+    dateStart.add(1, "month");
+  }
   return result.length;
 };
 
 export const getIcon = (type, id) => {
-    let isFirst = true;
-    let icon = "";
-    if (type === 'school' && id === 0) {
-        icon = process.env.PUBLIC_URL + "/assets/group.png";
-    } else if (type === 'job' && id === 0) {
-        icon = process.env.PUBLIC_URL + "/assets/portfolio.png";
-    } else {
-        isFirst = false
-        icon = process.env.PUBLIC_URL + "/assets/ellipse.png";
-    } 
-    return { icon, isFirst };
-} 
+  let isFirst = true;
+  let icon = "";
+  if (type === "school" && id === 0) {
+    icon = process.env.PUBLIC_URL + "/assets/group.png";
+  } else if (type === "job" && id === 0) {
+    icon = process.env.PUBLIC_URL + "/assets/portfolio.png";
+  } else {
+    isFirst = false;
+    icon = process.env.PUBLIC_URL + "/assets/ellipse.png";
+  }
+  return { icon, isFirst };
+};
+export const setLanguageCode = (id) => {
+  let idLanguage = id;
+  if (id === US) {
+    idLanguage = EN;
+  }
+  return idLanguage;
+};

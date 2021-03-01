@@ -39,7 +39,7 @@ const Timeline: React.FC<Props> = ({
     const { icon, isFirst } = getIcon(type, id);
     setIconElement(icon);
     setIconIsFirst(isFirst);
-  }, []);
+  }, [type, id]);
 
   return (
     <div className="timeline-container">
