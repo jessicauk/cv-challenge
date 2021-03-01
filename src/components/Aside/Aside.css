@@ -3,7 +3,7 @@
 .aside .aside-content {
   background: white;
   padding: 1.5em;
-  box-shadow:  0px 2px 6px 0px rgb(0 0 0 / 4%)
+  box-shadow: 0px 2px 6px 0px rgb(0 0 0 / 4%);
 }
 .profile-image {
   position: relative;
@@ -128,7 +128,7 @@
     display: flex;
     grid-template-areas: "image about";
     row-gap: 1.5em;
-    overflow: scroll;
+    overflow-y: scroll;
   }
   .profile-image {
     grid-area: image;
