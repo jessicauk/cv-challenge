@@ -2,7 +2,7 @@
   "name": "cv-project",
   "version": "0.1.0",
   "main": "index.js",
-  "homepage": "https://my-json-server.typicode.com/jessicauk/json-server-file",
+  "homepage": "https://github.com/jessicauk/cv-challenge",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
