@@ -1,17 +1,16 @@
 .skill-list {
-    padding-top: 4em;
-    padding-bottom: 5.4em;
+  padding: 5em;
 }
 .skill-list h1 {
-    text-align: justify;
-    margin-bottom: 36px;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.15%;
+  text-align: justify;
+  margin-bottom: 36px;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.15%;
 }
 .skill-list-container {
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .skill-list-item {
   display: grid;
@@ -20,60 +19,65 @@
   margin-bottom: 12px;
   justify-content: space-between;
 }
-.name{
-    grid-area: name;
-    text-align: justify;
-    font-size: 16px;
-    line-height: 24px;
+.name {
+  grid-area: name;
+  text-align: justify;
+  font-size: 16px;
+  line-height: 24px;
 }
-.bar-container{
-    grid-area: template;
-    width: 400px;
+.bar-container {
+  grid-area: template;
+  width: 100px;
 }
 .bar-container .bar {
-    width: 100%;
-    text-align: right;
-    height: 5px;
-    position: relative;
-    padding: 2px ;
-    background-color: var(--gray-background);
-    border-radius: 5px;
+  width: 100%;
+  text-align: right;
+  height: 5px;
+  position: relative;
+  padding: 2px;
+  background-color: var(--gray-background);
+  border-radius: 5px;
 }
 .bar-container .bar .bar-progress {
-    display: block;
-    height: 100%;
-    border-radius: 5px;
-    background: var(--purple);
-    position: relative;
-    overflow: hidden;
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: var(--purple);
+  position: relative;
+  overflow: hidden;
 }
 .one-percent {
-    width: 10%;
+  width: 10%;
 }
 .two-percent {
-    width: 20%;
+  width: 20%;
 }
 .three-percent {
-    width: 30%;
+  width: 30%;
 }
 .four-percent {
-    width: 40%;
+  width: 40%;
 }
 .five-percent {
-    width: 50%;
+  width: 50%;
 }
 .six-percent {
-    width: 60%;
+  width: 60%;
 }
 .seven-percent {
-    width: 70%;
+  width: 70%;
 }
 .eight-percent {
-    width: 80%;
+  width: 80%;
 }
 .nine-percent {
-    width: 90%;
+  width: 90%;
 }
 .ten-percent {
-    width: 100%;
+  width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .bar-container {
+    width: 400px;
+  }
 }

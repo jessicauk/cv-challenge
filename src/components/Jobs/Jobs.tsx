@@ -3,7 +3,6 @@ import { JOBS } from "../../utils/constants";
 import { Translate } from "../Aside/Aside";
 import { get } from "../../utils/Requester";
 import Timeline from "../Timeline/Timeline";
-import "./Jobs.css";
 
 interface ArrayJobs {
   id: number | undefined;

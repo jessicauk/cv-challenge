@@ -23,6 +23,7 @@ body {
   font-size: 12px;
   background: var(--gray-background);
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 code {

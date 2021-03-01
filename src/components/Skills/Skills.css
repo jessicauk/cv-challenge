@@ -1,10 +1,17 @@
 .interestes {
-    min-height: 284px;
-    background: var(--pink);
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
+  background: var(--pink);
+  box-sizing: border-box;
 }
-.interestes img {
+.skills h1 {
+  text-align: justify;
+  margin-bottom: 1em;
+}
+.skills h2 {
+  padding: 1em 0;
+}
+.icons {
+  min-height: 284px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

@@ -1,4 +1,3 @@
-/* import React from "react"; */
 import React, { useEffect, useState } from "react";
 import { PROFILE } from "../../utils/constants";
 import { get } from "../../utils/Requester";
