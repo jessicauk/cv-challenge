@@ -4,7 +4,6 @@ import { Translate } from "../Aside/Aside";
 import { get } from "../../utils/Requester";
 import Timeline from "../Timeline/Timeline";
 import Licences from "../Licences/Licences";
-import "./Education.css";
 
 interface ArrayEducation {
   id: number | undefined;

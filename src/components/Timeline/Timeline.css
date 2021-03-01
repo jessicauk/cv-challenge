@@ -1,128 +1,128 @@
 .timeline {
-    display: flex;
-    position: relative;
-    list-style: none;
-    flex-direction: column;
-    padding: 20px 20px;
+  display: flex;
+  position: relative;
+  list-style: none;
+  flex-direction: column;
+  padding: 20px 20px;
 }
 .timeline-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .timeline .timeline-item::before {
-    background: #dadee4;
-    content: "";
-    height: 100%;
-    left: 21px;
-    position: absolute;
-    top: 60px;
-    width: 2px;
-    z-index: 1;
+  background: #dadee4;
+  content: "";
+  height: 100%;
+  left: 21px;
+  position: absolute;
+  top: 60px;
+  width: 2px;
+  z-index: 1;
 }
 
 .timeline .timeline-item .icon {
-    position: absolute;
-    left: 3px;
-    z-index: 1;
+  position: absolute;
+  left: 3px;
+  z-index: 1;
 }
 .badage {
-    box-sizing: border-box;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 5px;
-    border-radius: 500px;
-    vertical-align: middle;
-    /* background: #1e87f0;
+  box-sizing: border-box;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 500px;
+  vertical-align: middle;
+  /* background: #1e87f0;
     color: #fff; */
-    font-size: .875rem;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 0.875rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 .timeline .timeline-item .icon .badage {
-    margin-top: 20px;
-    width: 40px;
-    height: 40px;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
 }
 .timeline .timeline-item .content {
-    display: flex;
-    margin: 20px 0px 20px 0px;
-    max-height: 300px;
-    padding: .0 0 0 2.5em;
-    flex-direction: column;
+  display: flex;
+  margin: 20px 0px 20px 0px;
+  max-height: 300px;
+  padding: 0 0 0 2.5em;
+  flex-direction: column;
 }
 
 .timeline .timeline-item .content h1 {
-    font-size: 20px;
-    text-align: left;
+  font-size: 20px;
+  text-align: left;
 }
 .timeline .description p {
-    text-align: justify;
+  text-align: justify;
 }
 .timeline .timeline-item .content span {
-    color: var(--gray);
-    font-size: 16px;
-    margin-left: 5px;
+  color: var(--gray);
+  font-size: 16px;
+  margin-left: 5px;
 }
 .timeline .timeline-item .content span {
-    color: var(--gray);
-    font-size: 16px;
-    margin-left: 5px;
+  color: var(--gray);
+  font-size: 16px;
+  margin-left: 5px;
 }
 .timeline .timeline-item .content .date-content {
-    text-align: justify;
-    display: inline-block;
+  text-align: justify;
+  display: inline-block;
 }
 
 .timeline .date-content .date {
-    display: inline-block;
+  display: inline-block;
 }
 .timeline .date-content .caption {
-    color: var(--red);
-    display: inline-block;
-    margin-left: 0.5em;
+  color: var(--red);
+  display: inline-block;
+  margin-left: 0.5em;
 }
 
 .timeline .timeline-item .content .description span {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 .timeline-item .content .description h1 {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 .timeline-item .description p {
-    font-size: 14px;
-    line-height: 20px;
+  font-size: 14px;
+  line-height: 20px;
 }
 .timeline-item .description .company {
-    font-size: 16px;
-    margin: 9px 0 7px 0;
+  font-size: 16px;
+  margin: 9px 0 7px 0;
 }
 @media screen and (min-width: 1024px) {
-    .timeline .timeline-item .content {
-        flex-direction: unset;
-        padding: .0 0 0 1.5em;
-    }
-    .timeline .timeline-item .content .date-content {
-        min-width: 150px;
-        margin-top: 10px;
-        text-align: center;
-    }
-    .timeline .date-content .date {
-        text-align: center;
-        display: block;
-    }
-    .timeline .date-content .caption {
-        color: var(--red);
-        text-align: justify;
-        margin-left: 4em;
-        display: block;
-    }
+  .timeline .timeline-item .content {
+    flex-direction: unset;
+    padding: 0 0 0 1.5em;
+  }
+  .timeline .timeline-item .content .date-content {
+    min-width: 150px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .timeline .date-content .date {
+    text-align: center;
+    display: block;
+  }
+  .timeline .date-content .caption {
+    color: var(--red);
+    text-align: justify;
+    margin-left: 4em;
+    display: block;
+  }
 }
 
 .remove {
-    margin: 0;
+  margin: 0;
 }
 .remove-padding {
-    padding-top: 0;
-} 
+  padding-top: 0;
+}
