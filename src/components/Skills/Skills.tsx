@@ -8,7 +8,7 @@ import "./Skills.css";
 export interface ArraySkills {
   id?: number | undefined;
   key?: number | undefined;
-  label: Translate;
+  label: Translate<string>;
   percentage: number;
 }
 

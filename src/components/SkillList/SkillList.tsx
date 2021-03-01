@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./SkillList.css";
+import LayoutContext from '../Layout/LayoutContext';
+import {ArraySkills} from '../Skills/Skills';
 
 interface PropsSkill {
   key?: number | undefined;
   id?: number | undefined;
   label: string;
   percentage: number;
-}
+};
+interface ArrayList {
+  skills: ArraySkills[];
+};
 
 const Skill: React.FC<PropsSkill> = ({ label, percentage }) => {
   return (
@@ -24,7 +29,10 @@ const Skill: React.FC<PropsSkill> = ({ label, percentage }) => {
   );
 };
 
-const SkillList: React.FC<any> = ({ skills }) => {
+const SkillList: React.FC<ArrayList> = ({ skills }) => {
+  const ContextLayout = useContext(LayoutContext);
+  const { idLanguage } = ContextLayout;
+  
   return (
     <div className="skill-list">
       <div className="skill-list-container">
@@ -36,7 +44,7 @@ const SkillList: React.FC<any> = ({ skills }) => {
             return (
               <Skill
                 key={skill.id}
-                label={skill.label["es"]}
+                label={skill.label[idLanguage]}
                 percentage={skill.percentage}
               />
             );

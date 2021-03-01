@@ -1,27 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import ReactFlagsSelect from 'react-flags-select';
 import { PROFILE } from "../../utils/constants";
 import { get } from "../../utils/Requester";
+import { setLanguageCode } from "../../utils/Functions";
+import { US } from "../../utils/constants";
+import LayoutContext from '../Layout/LayoutContext';
 import "./Aside.css";
 
-export interface Translate {
-  en: string | undefined;
-  es: string | undefined;
-}
+
+export interface TranslateValue{
+  en: string;
+  es: string;
+};
+export interface Translate<TranslateValue>{
+  [key:string]: TranslateValue;
+};
 interface Contact {
   email: string | undefined;
   linkedin: string | undefined;
   phone: string | undefined;
-}
+};
 
 interface Profile {
   picture: string | undefined;
   firstName: string | undefined;
   lastName: string | undefined;
   contact: Contact;
-  aboutMe: Translate;
-}
+  aboutMe: Translate<string>;
+};
 
 function Aside() {
+  const ContextLayout = useContext(LayoutContext);
+  const { idLanguage, setIdLanguage } = ContextLayout;
+
   const [data, setData] = useState<Profile>({
     picture: '',
     firstName: '',
@@ -36,6 +47,7 @@ function Aside() {
       es: '',
     }
   });
+  const [selected, setSelected] = useState<string>(US.toUpperCase());
 
   const getData = async () => {
     const response = await get(PROFILE);
@@ -45,7 +57,7 @@ function Aside() {
     getData();
   }, []);
   const {email, linkedin, phone}  = data.contact;
-  const aboutMeTranslate  = data.aboutMe['es'];
+  const aboutMeTranslate  = data.aboutMe[idLanguage];
 
   return (
     <aside className="aside">
@@ -65,6 +77,16 @@ function Aside() {
           </div>
           <img className="picture" src={process.env.PUBLIC_URL + "/assets/profile-picture.png"} alt="" />
         </div>
+        <ReactFlagsSelect
+          countries={["US", "ES"]}
+          customLabels={{"US": "EN", "ES": "ES"}}
+          selected={selected}
+          onSelect={code => {
+            setIdLanguage(setLanguageCode(code.toLowerCase()));
+            setSelected(code)
+          }}
+          
+        />
         <div className="profile-information">
           <h1>{data.firstName}</h1>
           <h3>{data.lastName}</h3>

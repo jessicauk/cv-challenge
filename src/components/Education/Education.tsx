@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { CERTIFICATIONS, EDUCATION } from "../../utils/constants";
+import LayoutContext from '../Layout/LayoutContext';
 import { Translate } from "../Aside/Aside";
 import { get } from "../../utils/Requester";
 import Timeline from "../Timeline/Timeline";
@@ -8,7 +9,7 @@ import Licences from "../Licences/Licences";
 interface ArrayEducation {
   id: number | undefined;
   school: string | undefined;
-  description: Translate;
+  description: Translate<string>;
   location: string | undefined;
   dateStart: string | undefined;
   dateEnd: string | undefined;
@@ -17,14 +18,17 @@ interface ArrayEducation {
 interface ArrayCertification {
   id: number | undefined;
   key: string | undefined;
-  title: Translate;
-  description: Translate;
+  title: Translate<string>;
+  description: Translate<string>;
   registred: string | undefined;
 };
 
 function Education() {
   const [dataEducation, setDataEducation] = useState<ArrayEducation[]>([]);
   const [dataCertification, setDataCertification] = useState<ArrayCertification[]>([]);
+  const ContextLayout = useContext(LayoutContext);
+  const { idLanguage } = ContextLayout;
+
   const getDataEducation = async () => {
     const response = await get(EDUCATION);
     setDataEducation(response);
@@ -49,7 +53,7 @@ function Education() {
               id={itemEducation.id}
               isVisibleCompanyText={false}
               isVisibleDateText={false}
-              description={itemEducation.description["es"]}
+              description={itemEducation.description[idLanguage]}
               dateStart={itemEducation.dateStart}
               dateEnd={itemEducation.dateEnd}
               school={itemEducation.school}
@@ -65,9 +69,9 @@ function Education() {
             <Licences
               key={itemCertification.id}
               keyCert={itemCertification.key}
-              description={itemCertification.description["es"]}
+              description={itemCertification.description[idLanguage]}
               registred={itemCertification.registred}
-              title={itemCertification.title["es"]}
+              title={itemCertification.title[idLanguage]}
               id={itemCertification.id}
             />
           );

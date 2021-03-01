@@ -6,6 +6,8 @@ import Jobs from "../Jobs/Jobs";
 import Portfolio from "../Portfolio/Portfolio";
 import Skills from "../Skills/Skills";
 import Aside from "../Aside/Aside";
+import LayoutContext from './LayoutContext';
+
 interface PropsInterface {
   history?: object;
 }
@@ -19,6 +21,7 @@ function Layout(props: PropsInterface) {
     height: 0,
   });
   const [isOpenMenu, setIsOpenMenu] = useState<Boolean>(false);
+  const [idLanguage, setIdLanguage] = useState<string>('es');
 
   useEffect(() => {
     if (windowSize) {
@@ -71,88 +74,90 @@ function Layout(props: PropsInterface) {
   let location = useLocation();
   return (
     <div className="app">
-      <div className="app-wrapper">
-        <div
-          className="app-container"
-          style={{
-            marginTop: isWithMarginTop ? "3em" : "",
-          }}
-        >
-          <header className="header section-wrapper">
-            <i
-              className={`${
-                isOpenMenu === true ? "toggle toggle-transformed" : "toggle"
-              }`}
-              id="toggle"
-              onClick={onClickToggle}
-            ></i>
-            <nav id="nav-list">
-              <ul>
-                <li
-                  className={`${
-                    location.pathname === "/education" ? "active" : ""
-                  }`}
-                >
-                  <Link onClick={handleClose} to={`/education`}>
-                    Educación
-                  </Link>
-                </li>
-                <li
-                  className={`${location.pathname === "/jobs" ? "active" : ""}`}
-                >
-                  <Link onClick={handleClose} to={`/jobs`}>
-                    Experiencia
-                  </Link>
-                </li>
-                <li
-                  className={`${
-                    location.pathname === "/portfolio" ? "active" : ""
-                  }`}
-                >
-                  <Link onClick={handleClose} to={`/portfolio`}>
-                    Portafolio
-                  </Link>
-                </li>
-                <li
-                  className={`${
-                    location.pathname === "/skills" ? "active" : ""
-                  }`}
-                >
-                  <Link onClick={handleClose} to={`/skills`}>
-                    Conocimientos y habilidades
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          <Aside />
-          <main className="main section-wrapper scroll white">
-            <div
-              className={`${
-                location.pathname === "/skills" ? "wrapper-no-p" : "wrapper"
-              }`}
-            >
-              <Switch>
-                <Route exact path="/">
-                  <Redirect to="/education" />
-                </Route>
-                <Route exact path="/education">
-                  <Education />
-                </Route>
-                <Route exact path="/jobs">
-                  <Jobs />
-                </Route>
-                <Route exact path="/portfolio">
-                  <Portfolio />
-                </Route>
-                <Route exact path="/skills">
-                  <Skills />
-                </Route>
-              </Switch>
-            </div>
-          </main>
+      <LayoutContext.Provider value={{idLanguage, setIdLanguage}}>
+        <div className="app-wrapper">
+          <div
+            className="app-container"
+            style={{
+              marginTop: isWithMarginTop ? "3em" : "",
+            }}
+          >
+            <header className="header section-wrapper">
+              <i
+                className={`${
+                  isOpenMenu === true ? "toggle toggle-transformed" : "toggle"
+                }`}
+                id="toggle"
+                onClick={onClickToggle}
+              ></i>
+              <nav id="nav-list">
+                <ul>
+                  <li
+                    className={`${
+                      location.pathname === "/education" ? "active" : ""
+                    }`}
+                  >
+                    <Link onClick={handleClose} to={`/education`}>
+                      Educación
+                    </Link>
+                  </li>
+                  <li
+                    className={`${location.pathname === "/jobs" ? "active" : ""}`}
+                  >
+                    <Link onClick={handleClose} to={`/jobs`}>
+                      Experiencia
+                    </Link>
+                  </li>
+                  <li
+                    className={`${
+                      location.pathname === "/portfolio" ? "active" : ""
+                    }`}
+                  >
+                    <Link onClick={handleClose} to={`/portfolio`}>
+                      Portafolio
+                    </Link>
+                  </li>
+                  <li
+                    className={`${
+                      location.pathname === "/skills" ? "active" : ""
+                    }`}
+                  >
+                    <Link onClick={handleClose} to={`/skills`}>
+                      Conocimientos y habilidades
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+            <Aside />
+            <main className="main section-wrapper scroll white">
+              <div
+                className={`${
+                  location.pathname === "/skills" ? "wrapper-no-p" : "wrapper"
+                }`}
+              >
+                <Switch>
+                  <Route exact path="/">
+                    <Redirect to="/education" />
+                  </Route>
+                  <Route exact path="/education">
+                    <Education />
+                  </Route>
+                  <Route exact path="/jobs">
+                    <Jobs />
+                  </Route>
+                  <Route exact path="/portfolio">
+                    <Portfolio />
+                  </Route>
+                  <Route exact path="/skills">
+                    <Skills />
+                  </Route>
+                </Switch>
+              </div>
+            </main>
+          </div>
         </div>
-      </div>
+      </LayoutContext.Provider>
     </div>
   );
 }

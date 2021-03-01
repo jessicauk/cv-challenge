@@ -1,4 +1,6 @@
 import axios from "axios";
+import { APIError } from './APIError';
+import { ERROR_GET, ERROR_POST, ERROR_PUT, ERROR_DELETE, ERROR_PATCH } from './constants';
 
 const axiosInstance = axios.create({
   timeout: 35000,
@@ -18,7 +20,7 @@ export default class Axios {
       const response = await axiosInstance.get(endpoint);
       return response.data;
     } catch (error) {
-      throw new Error("Error");
+      throw new APIError(ERROR_GET);
     }
   }
   async post(endpoint = "") {
@@ -26,7 +28,7 @@ export default class Axios {
       const response = await axiosInstance.post(endpoint);
       return response.data;
     } catch (error) {
-      throw new Error("Error");
+      throw new APIError(ERROR_POST)
     }
   }
   async put(endpoint = "") {
@@ -34,7 +36,7 @@ export default class Axios {
       const response = await axiosInstance.put(endpoint);
       return response.data;
     } catch (error) {
-      throw new Error("Error");
+      throw new APIError(ERROR_PUT);
     }
   }
   async deletion(endpoint = "") {
@@ -42,7 +44,7 @@ export default class Axios {
       const response = await axiosInstance.deletion(endpoint);
       return response.data;
     } catch (error) {
-      throw new Error("Error");
+      throw new APIError(ERROR_DELETE);
     }
   }
   async patch(endpoint = "") {
@@ -50,7 +52,7 @@ export default class Axios {
       const response = await axiosInstance.patch(endpoint);
       return response.data;
     } catch (error) {
-      throw new Error("Error");
+      throw new APIError(ERROR_PATCH);
     }
   }
 }
