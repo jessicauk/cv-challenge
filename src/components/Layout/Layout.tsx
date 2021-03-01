@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Switch, Link, Route, useLocation } from "react-router-dom";
+import { Switch, Link, Route, useLocation, Redirect } from "react-router-dom";
 import "../../App.css";
 import Education from "../Education/Education";
 import Jobs from "../Jobs/Jobs";
@@ -93,6 +93,9 @@ function Layout(props: PropsInterface) {
               }`}
             >
               <Switch>
+                <Route exact path="/">
+                  <Redirect to="/education"/>
+                </Route>
                 <Route exact path="/education">
                   <Education />
                 </Route>
