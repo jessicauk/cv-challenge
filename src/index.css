@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 :root {
-  --gray-background: #E5E5E5;
-  --red: #FF0056;
+  --gray-background: #e5e5e5;
+  --red: #ff0056;
   --white: white;
-  --purple: #8F7CFF;
+  --purple: #8f7cff;
   --black: #000000;
   --gray: #828282;
-  --pink: rgba(255,0,86,0.1);
-  --font: 'Roboto', sans-serif;
+  --pink: rgba(255, 0, 86, 0.1);
+  --font: "Roboto", sans-serif;
   --normal: 400;
 }
 * {
@@ -27,6 +27,27 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1.5px #908d92;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #908d92;
 }
