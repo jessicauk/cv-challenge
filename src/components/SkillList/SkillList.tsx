@@ -5,7 +5,7 @@ import {ArraySkills} from '../Skills/Skills';
 
 interface PropsSkill {
   key?: number | undefined;
-  id?: number | undefined;
+  id: number;
   label: string;
   percentage: number;
 };
@@ -46,6 +46,7 @@ const SkillList: React.FC<ArrayList> = ({ skills }) => {
                 key={skill.id}
                 label={skill.label[idLanguage]}
                 percentage={skill.percentage}
+                id={skill.id}
               />
             );
           })}

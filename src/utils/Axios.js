@@ -23,9 +23,9 @@ export default class Axios {
       throw new APIError(ERROR_GET);
     }
   }
-  async post(endpoint = "") {
+  async post(endpoint = "", data) {
     try {
-      const response = await axiosInstance.post(endpoint);
+      const response = await axiosInstance.post(endpoint, data);
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_POST)
@@ -41,8 +41,7 @@ export default class Axios {
   }
   async deletion(endpoint = "") {
     try {
-      console.log("deletion", endpoint)
-      const response = await axiosInstance.deletion(endpoint);
+      const response = await axiosInstance.delete(endpoint);
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_DELETE);

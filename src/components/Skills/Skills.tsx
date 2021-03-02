@@ -6,7 +6,7 @@ import { Translate } from "../Aside/Aside";
 import "./Skills.css";
 
 export interface ArraySkills {
-  id?: number | undefined;
+  id: number;
   key?: number | undefined;
   label: Translate<string>;
   percentage: number;
