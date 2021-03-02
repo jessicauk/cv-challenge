@@ -21,6 +21,7 @@ describe('Requester functions API',() => {
       }
     };
     expect.assertions(1);
-    await expect(requester.get(endpoint)).resolves.toMatchObject(data);
+    await expect(requester.get(endpoint)).resolves.toEqual(data);
+
   });
 });
