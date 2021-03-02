@@ -3,10 +3,16 @@
 }
 .licences-container {
   padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 .licences-container .item {
   display: flex;
-  justify-content: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .licences-container .title {
   text-align: justify;
@@ -41,4 +47,19 @@
 .licences-container .item p:nth-of-type(3) {
   font-weight: 400;
   color: var(--gray);
+}
+
+@media screen and (min-width: 1024px) {
+  .licences-container .item {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  .licences-container {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }

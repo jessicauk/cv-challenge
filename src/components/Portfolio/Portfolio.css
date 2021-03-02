@@ -10,6 +10,7 @@
   margin: 0 auto;
   height: 32em;
   width: 90%;
+  overflow: hidden;
 }
 .grid .item img {
   width: 100%;

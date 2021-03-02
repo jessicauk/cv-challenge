@@ -84,11 +84,23 @@
   margin-left: 0.5em;
 }
 
+.timeline .timeline-item .content .description {
+  width: 100%
+}
 .timeline .timeline-item .content .description span {
   margin-left: 16px;
 }
+.timeline-item .content .description .title{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
 .timeline-item .content .description h1 {
   margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  display: inline-block;
 }
 .timeline-item .description p {
   font-size: 14px;
@@ -97,6 +109,17 @@
 .timeline-item .description .company {
   font-size: 16px;
   margin: 9px 0 7px 0;
+}
+.container-popover {
+  margin: auto;
+  text-align: center;
+  padding: 1.5em;
+}
+.remove {
+  margin: 0;
+}
+.remove-padding {
+  padding-top: 0;
 }
 @media screen and (min-width: 1024px) {
   .timeline .timeline-item .content {
@@ -120,9 +143,3 @@
   }
 }
 
-.remove {
-  margin: 0;
-}
-.remove-padding {
-  padding-top: 0;
-}
