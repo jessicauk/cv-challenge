@@ -33,5 +33,9 @@ export const MESSAGES = {
     BRIEFCASE: "Portafolio",
     SKILLS: "Conocimientos y Habilidades",
   },
+<<<<<<< HEAD
 };
 console.log("ENV", process.env.NODE_ENV);
+=======
+};
+>>>>>>> Feat/add test (#16)
