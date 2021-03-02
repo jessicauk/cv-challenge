@@ -42,19 +42,19 @@ function Education() {
     setDataCertification(response);
   };
   const updateDataEducation = async (data:DataEducation) => {
-    const dataEducation = {...data};
-    await put(EDUCATION, dataEducation);
+    const dataJSON = {...data};
+    await put(EDUCATION, dataJSON);
     getDataEducation();
   };
   const addDataEducation = async (data:DataEducation) => {
-    const dataEducation = {...data};
-    await post(EDUCATION, dataEducation);
+    const dataJSON = {...data};
+    await post(EDUCATION, dataJSON);
     getDataEducation();
   };
   const deleteDataEducation = async (id:number) => {
-    const dataEducation = {id};
-    console.log("dataEducation",dataEducation);
-    await deletion(EDUCATION, dataEducation);
+    const dataJSON = {id};
+    console.log("dataEducation",dataJSON);
+    await deletion(EDUCATION, dataJSON);
     getDataEducation();
   };
   useEffect(() => {

@@ -23,34 +23,34 @@ export default class Axios {
       throw new APIError(ERROR_GET);
     }
   }
-  async post(endpoint = "", data) {
+  async post(endpoint = "") {
     try {
-      const response = await axiosInstance.post(endpoint, data);
+      const response = await axiosInstance.post(endpoint);
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_POST)
     }
   }
-  async put(endpoint = "") {
+  async put(endpoint = "", data) {
     try {
-      console.log("asdaddasda", endpoint)
-      const response = await axiosInstance.put(endpoint);
+      const response = await axiosInstance.put(endpoint, data);
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_PUT);
     }
   }
-  async deletion(endpoint = "", data) {
+  async deletion(endpoint = "") {
     try {
-      const response = await axiosInstance.deletion(endpoint, data);
+      console.log("deletion", endpoint)
+      const response = await axiosInstance.deletion(endpoint);
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_DELETE);
     }
   }
-  async patch(endpoint = "", data) {
+  async patch(endpoint = "") {
     try {
-      const response = await axiosInstance.patch(endpoint, data);
+      const response = await axiosInstance.patch(endpoint);
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_PATCH);
