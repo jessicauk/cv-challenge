@@ -34,4 +34,3 @@ export const MESSAGES = {
     SKILLS: "Conocimientos y Habilidades",
   },
 };
-console.log("ENV", process.env.NODE_ENV)
