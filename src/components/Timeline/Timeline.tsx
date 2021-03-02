@@ -34,7 +34,9 @@ export interface Props {
   idLanguage: string;
   handleEdit: (data: DataEducation) => void;
   handleDelete: (id: number) => void;
-}
+  setSelected: (item: any) => void;
+  getItemById: (id: number) => void;
+};
 
 const Timeline: React.FC<Props> = ({
   isVisibleCompanyText,
@@ -52,7 +54,9 @@ const Timeline: React.FC<Props> = ({
   title,
   handleEdit,
   handleDelete,
-  idLanguage
+  idLanguage,
+  setSelected,
+  getItemById,
 }) => {
   const [iconElement, setIconElement] = useState<string>("");
   const [iconIsFirst, setIconIsFirst] = useState<boolean>(false);
@@ -144,7 +148,12 @@ const Timeline: React.FC<Props> = ({
                   {isVisibleEdit === true && (
                     <IconButton
                       aria-label="Edit"
-                      onClick={() => setIsOpenEdit(!isOpenEdit)}
+                      onClick={async () => {
+                        console.log("qwqwd ID", id);
+                        await getItemById(id);
+                        setSelected(id);
+                        setIsOpenEdit(!isOpenEdit)
+                      }}
                     >
                       <CreateIcon />
                     </IconButton>

@@ -7,7 +7,7 @@ interface Props {
   description: string | undefined;
   registred: string | undefined;
   title: string | undefined;
-  id?: number | undefined;
+  id: number;
   key?: number | undefined;
 };
 

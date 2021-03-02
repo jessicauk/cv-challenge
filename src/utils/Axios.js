@@ -41,8 +41,7 @@ export default class Axios {
   }
   async deletion(endpoint = "") {
     try {
-      console.log("deletion", endpoint)
-      const response = await axiosInstance.deletion(endpoint);
+      const response = await axiosInstance.delete(endpoint); 
       return response.data;
     } catch (error) {
       throw new APIError(ERROR_DELETE);

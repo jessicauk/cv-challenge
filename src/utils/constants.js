@@ -1,14 +1,37 @@
-export const EDUCATION = 'http://localhost:3000/education';
-export const CERTIFICATIONS = 'http://localhost:3000/certifications';
-export const PROFILE = 'http://localhost:3000/profile';
-export const JOBS = 'http://localhost:3000/jobs';
-export const BRIEFCASE = 'http://localhost:3000/briefcase';
-export const LANGUAGES = 'http://localhost:3000/languages';
-export const SKILLS = 'http://localhost:3000/skills';
-export const ERROR_GET = 'Error get endpoint';
-export const ERROR_POST = 'Error post endpoint';
-export const ERROR_PUT = 'Error put endpoint';
-export const ERROR_DELETE = 'Error delete endpoint';
-export const ERROR_PATCH = 'Error error endpoint';
-export const EN = 'en';
-export const US = 'us';
+let enviroment = '';
+if (process.env.NODE_ENV === 'development') {
+    enviroment = 'http://localhost:3000';
+} else {
+    enviroment = 'https://fake-json-server-app.herokuapp.com';
+}
+export const EDUCATION = `${enviroment}/education`;
+export const CERTIFICATIONS = `${enviroment}/certifications`;
+export const PROFILE = `${enviroment}/profile`;
+export const JOBS = `${enviroment}/jobs`;
+export const BRIEFCASE = `${enviroment}/`;
+export const LANGUAGES = `${enviroment}/languages`; 
+export const SKILLS = `${enviroment}/skills`; 
+export const ERROR_GET = "Error get endpoint";
+export const ERROR_POST = "Error post endpoint";
+export const ERROR_PUT = "Error put endpoint";
+export const ERROR_DELETE = "Error delete endpoint";
+export const ERROR_PATCH = "Error error endpoint";
+export const EN = "en";
+export const US = "us";
+export const ES = "es";
+export const EMPTY_ID = 999999999;
+export const MESSAGES = {
+  en: {
+    EDUCATION: "Education",
+    JOB: "Job",
+    BRIEFCASE: "Briefcase",
+    SKILLS: "Briefcase",
+  },
+  es: {
+    EDUCATION: "Educación",
+    JOB: "Experiencia",
+    BRIEFCASE: "Portafolio",
+    SKILLS: "Conocimientos y Habilidades",
+  },
+};
+console.log("ENV", process.env.NODE_ENV)

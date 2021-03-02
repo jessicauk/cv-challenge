@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { CERTIFICATIONS, EDUCATION } from "../../utils/constants";
+import { CERTIFICATIONS, EDUCATION, EMPTY_ID } from "../../utils/constants";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import LayoutContext from '../Layout/LayoutContext';
 import { Translate } from "../Aside/Aside";
@@ -30,6 +30,9 @@ function Education() {
   const [dataEducation, setDataEducation] = useState<ArrayEducation[]>([]);
   const [dataCertification, setDataCertification] = useState<ArrayCertification[]>([]);
   const [isOpenAddEducation, setIsOpenAddEducation] = useState<boolean>(false);
+  const [selected, setSelected] = useState<number>(EMPTY_ID);
+  const [selectedData, setSelectedData] = useState<any>();
+
   const ContextLayout = useContext(LayoutContext);
   const { idLanguage } = ContextLayout;
 
@@ -37,23 +40,31 @@ function Education() {
     const response = await get(EDUCATION);
     setDataEducation(response);
   };
+  const getDataEducationById = async (id: number) => {
+    const response = await get(`${EDUCATION}/${id}`);    setSelectedData(response);
+  };
   const getDataCertification = async () => {
     const response = await get(CERTIFICATIONS);
     setDataCertification(response);
   };
   const updateDataEducation = async (data:DataEducation) => {
-    const dataJSON = {...data};
+    const dataJSON = {...selectedData, ...data,description:{...selectedData.description, ...data.description}}
     await put(EDUCATION, dataJSON);
     getDataEducation();
   };
   const addDataEducation = async (data:DataEducation) => {
-    const dataJSON = {...data};
+    let dataJSON = {
+        school: data.school,
+        description: data.description,
+        location: data.location,
+        dateStart: new Date().toDateString(),
+        dateEnd: new Date().toDateString(),
+    }
     await post(EDUCATION, dataJSON);
     getDataEducation();
   };
   const deleteDataEducation = async (id:number) => {
     const dataJSON = {id};
-    console.log("dataEducation",dataJSON);
     await deletion(EDUCATION, dataJSON);
     getDataEducation();
   };
@@ -62,22 +73,23 @@ function Education() {
     getDataCertification()
   }, []);
 
-  const handleEdit = (data:DataEducation) => {
+  const handleEdit = async (data:DataEducation) => {
     updateDataEducation(data);
   };
   const handleDelete = (id:number) => {
     deleteDataEducation(id);
   };
-  const handleAdd = (data:DataEducation) => {
-    addDataEducation({
+  const handleAdd = async (data:DataEducation) => {
+    await addDataEducation({
       school: data.school,
       description: data.description,
       location: data.location,
+      id: EMPTY_ID,
     });
   };
   const handleOpenAddEducation = () => {
     setIsOpenAddEducation(!isOpenAddEducation);
-  }
+  };
 
   return (
     <>
@@ -95,6 +107,7 @@ function Education() {
         description=""
         type="school"
         idLanguage={idLanguage}
+        id={selected}
       />
       {Array.isArray(dataEducation) &&
         dataEducation &&
@@ -105,7 +118,7 @@ function Education() {
               id={itemEducation.id}
               isVisibleCompanyText={false}
               isVisibleDateText={false}
-              description={itemEducation.description[idLanguage]}
+              description={itemEducation.description ? itemEducation.description[idLanguage] : ''}
               dateStart={itemEducation.dateStart}
               dateEnd={itemEducation.dateEnd}
               school={itemEducation.school}
@@ -116,6 +129,8 @@ function Education() {
               isVisibleDelete
               isVisibleEdit
               idLanguage={idLanguage}
+              setSelected={setSelected}
+              getItemById={getDataEducationById}
             />
           );
         })}
@@ -126,9 +141,9 @@ function Education() {
             <Licences
               key={itemCertification.id}
               keyCert={itemCertification.key}
-              description={itemCertification.description[idLanguage]}
+              description={itemCertification.description ? itemCertification.description[idLanguage]: ''}
               registred={itemCertification.registred}
-              title={itemCertification.title[idLanguage]}
+              title={itemCertification.title ? itemCertification.title[idLanguage]: ''}
               id={itemCertification.id}
             />
           );
