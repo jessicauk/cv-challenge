@@ -35,6 +35,8 @@ export const deletion = async (endpoint, data) => {
   try {
     const axiosInstance = new Axios();
     const endpointURL = `${endpoint}/${data.id}`;
+    console.log("deletion", endpoint)
+    console.log("endpointURL", endpointURL)
     const response = await axiosInstance.delete(endpointURL);
     return response;
   } catch (error) {
