@@ -12,6 +12,9 @@ h3 {
   font-weight: 500;
   text-align: center;
 }
+.red {
+  background: var(--red);
+}
 
 .white {
   background: var(--white);
@@ -26,6 +29,7 @@ h3 {
   max-width: 1900px;
   background: var(--gray);
   height: 100vh;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -33,6 +37,7 @@ h3 {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 5em;
+  box-sizing: border-box;
 }
 
 nav ul {
@@ -102,6 +107,7 @@ header ul li:hover {
 .main {
   grid-area: main;
   box-shadow: 0px 2px 6px 0px rgb(0 0 0 / 4%);
+  width: 100%;
 }
 
 /* HEADER START */
@@ -151,6 +157,21 @@ header ul li:hover {
 }
 /* HEADER START */
 
+.wrapp-button {
+  margin: 2em 0 0 0;
+  display: flex;
+  justify-content: end;
+  position: relative;
+  width: 100%;
+  /* margin: 1em 0; */
+}
+.wrapp-button .btn-add{
+  position: absolute;
+  right: 0;
+  margin: 0 1em;
+  z-index: 1;
+}
+
 @media screen and (min-width: 720px) {
 }
 
@@ -190,6 +211,7 @@ header ul li:hover {
     width: 100%;
     max-width: 907px;
     margin: 0 auto;
+    box-sizing: border-box;
   }
   .main .wrapper-no-p {
     /* overflow: scroll; */

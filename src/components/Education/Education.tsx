@@ -1,13 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 import { CERTIFICATIONS, EDUCATION } from "../../utils/constants";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import LayoutContext from '../Layout/LayoutContext';
 import { Translate } from "../Aside/Aside";
-import { get } from "../../utils/Requester";
+import { get, put, post, deletion } from "../../utils/Requester";
 import Timeline from "../Timeline/Timeline";
 import Licences from "../Licences/Licences";
+import DialogEdit, { DataEducation } from "../DialogEdit/DialogEdit";
+
 
 interface ArrayEducation {
-  id: number | undefined;
+  id: number;
   school: string | undefined;
   description: Translate<string>;
   location: string | undefined;
@@ -16,7 +19,7 @@ interface ArrayEducation {
 };
 
 interface ArrayCertification {
-  id: number | undefined;
+  id: number;
   key: string | undefined;
   title: Translate<string>;
   description: Translate<string>;
@@ -26,6 +29,7 @@ interface ArrayCertification {
 function Education() {
   const [dataEducation, setDataEducation] = useState<ArrayEducation[]>([]);
   const [dataCertification, setDataCertification] = useState<ArrayCertification[]>([]);
+  const [isOpenAddEducation, setIsOpenAddEducation] = useState<boolean>(false);
   const ContextLayout = useContext(LayoutContext);
   const { idLanguage } = ContextLayout;
 
@@ -37,13 +41,61 @@ function Education() {
     const response = await get(CERTIFICATIONS);
     setDataCertification(response);
   };
+  const updateDataEducation = async (data:DataEducation) => {
+    const dataEducation = {...data};
+    await put(EDUCATION, dataEducation);
+    getDataEducation();
+  };
+  const addDataEducation = async (data:DataEducation) => {
+    const dataEducation = {...data};
+    await post(EDUCATION, dataEducation);
+    getDataEducation();
+  };
+  const deleteDataEducation = async (id:number) => {
+    const dataEducation = {id};
+    console.log("dataEducation",dataEducation);
+    await deletion(EDUCATION, dataEducation);
+    getDataEducation();
+  };
   useEffect(() => {
     getDataEducation();
     getDataCertification()
   }, []);
 
+  const handleEdit = (data:DataEducation) => {
+    updateDataEducation(data);
+  };
+  const handleDelete = (id:number) => {
+    deleteDataEducation(id);
+  };
+  const handleAdd = (data:DataEducation) => {
+    addDataEducation({
+      school: data.school,
+      description: data.description,
+      location: data.location,
+    });
+  };
+  const handleOpenAddEducation = () => {
+    setIsOpenAddEducation(!isOpenAddEducation);
+  }
+
   return (
     <>
+      <div className="wrapp-button">
+        <AddCircleIcon onClick={handleOpenAddEducation} color="primary" className="btn-add" style={{ fontSize: 40 }}/>
+      </div>
+      <DialogEdit
+        open={isOpenAddEducation}
+        handleClose={() => setIsOpenAddEducation(false)}
+        handleAccept={(data) => handleAdd(data)}
+        location=""
+        school=""
+        title=""
+        company=""
+        description=""
+        type="school"
+        idLanguage={idLanguage}
+      />
       {Array.isArray(dataEducation) &&
         dataEducation &&
         dataEducation.map((itemEducation) => {
@@ -59,6 +111,11 @@ function Education() {
               school={itemEducation.school}
               location={itemEducation.location}
               type="school"
+              handleEdit={(data) => handleEdit(data)}
+              handleDelete={handleDelete}
+              isVisibleDelete
+              isVisibleEdit
+              idLanguage={idLanguage}
             />
           );
         })}
