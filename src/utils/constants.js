@@ -1,14 +1,6 @@
 let enviroment = '';
 if (process.env.NODE_ENV === 'development') {
-<<<<<<< HEAD
     enviroment = 'http://localhost:3000/';
-=======
-<<<<<<< HEAD
-    enviroment = 'https://fake-json-server-app.herokuapp.com';
-=======
-    enviroment = 'http://localhost:3000/';
->>>>>>> Feat/rebase remote changes (#19)
->>>>>>> Feat/rebase remote changes (#19)
 } else {
     enviroment = 'https://fake-json-server-app.herokuapp.com';
 }
@@ -41,13 +33,5 @@ export const MESSAGES = {
     BRIEFCASE: "Portafolio",
     SKILLS: "Conocimientos y Habilidades",
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
 };
 console.log("ENV", process.env.NODE_ENV);
-=======
-};
->>>>>>> Feat/add test (#16)
-=======
-};
->>>>>>> Feat/rebase remote changes (#19)
