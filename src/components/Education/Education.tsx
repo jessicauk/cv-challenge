@@ -48,9 +48,7 @@ function Education() {
     setDataCertification(response);
   };
   const updateDataEducation = async (data:DataEducation) => {
-    console.log("selected", selectedData)
     const dataJSON = {...selectedData, ...data,description:{...selectedData.description, ...data.description}}
-    console.log("update", dataJSON)
     await put(EDUCATION, dataJSON);
     getDataEducation();
   };
@@ -62,7 +60,6 @@ function Education() {
         dateStart: new Date().toDateString(),
         dateEnd: new Date().toDateString(),
     }
-    console.log("dataJSON", dataJSON)
     await post(EDUCATION, dataJSON);
     getDataEducation();
   };
