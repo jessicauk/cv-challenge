@@ -10,6 +10,8 @@
 
 # production
 /build
+
+# heroku
 /aqueous-citadel-19471
 
 # misc
