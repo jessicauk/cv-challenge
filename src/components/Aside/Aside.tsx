@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReactFlagsSelect from 'react-flags-select';
-import { PROFILE } from "../../utils/constants";
+import { PROFILE, LANGUAGES } from "../../utils/constants";
 import { get } from "../../utils/Requester";
 import { setLanguageCode } from "../../utils/Functions";
 import { US } from "../../utils/constants";
@@ -8,9 +8,15 @@ import LayoutContext from '../Layout/LayoutContext';
 import "./Aside.css";
 
 
+
 export interface TranslateValue{
   en: string;
   es: string;
+};
+export interface Languages{
+  id: number;
+  label: TranslateValue;
+  percentage?: number;
 };
 export interface Translate<TranslateValue>{
   [key:string]: TranslateValue;
@@ -32,6 +38,7 @@ interface Profile {
 function Aside() {
   const ContextLayout = useContext(LayoutContext);
   const { idLanguage, setIdLanguage } = ContextLayout;
+  const [ languagesCatalog, setLanguagesCatalog ] = useState<Languages[]>([]);
 
   const [data, setData] = useState<Profile>({
     picture: '',
@@ -53,9 +60,15 @@ function Aside() {
     const response = await get(PROFILE);
     setData(response);
   };
+  const getLanguagesCatalog = async () => {
+    const response = await get(LANGUAGES);
+    setLanguagesCatalog(response);
+  };
   useEffect(() => {
     getData();
+    getLanguagesCatalog();
   }, []);
+
   const {email, linkedin, phone}  = data.contact;
   const aboutMeTranslate  = data.aboutMe[idLanguage];
 
