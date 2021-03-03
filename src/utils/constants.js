@@ -1,6 +1,6 @@
 let enviroment = '';
 if (process.env.NODE_ENV === 'development') {
-    enviroment = 'https://fake-json-server-app.herokuapp.com';
+    enviroment = 'http://localhost:3000/';
 } else {
     enviroment = 'https://fake-json-server-app.herokuapp.com';
 }
@@ -34,3 +34,5 @@ export const MESSAGES = {
     SKILLS: "Conocimientos y Habilidades",
   },
 };
+console.log("ENV", process.env.NODE_ENV);
+
