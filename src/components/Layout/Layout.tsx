@@ -23,13 +23,17 @@ function Layout(props: PropsInterface) {
   const [isOpenMenu, setIsOpenMenu] = useState<Boolean>(false);
   const [idLanguage, setIdLanguage] = useState<string>('es');
 
+  const element = document.getElementById("nav-list");
+  const toggle = document.getElementById("toggle");
+
   useEffect(() => {
     if (windowSize) {
-      if (windowSize.width && windowSize.width < 700) {
-        const element = document.getElementById("nav-list");
-        const toggle = document.getElementById("toggle");
+      console.log("windowSize.width", windowSize.width)
+      if (windowSize.width && windowSize.width > 1024) {
         if (element) element.classList.remove("responsive");
         if (toggle) toggle.classList.remove("toggle-transformed");
+      } else {
+        if (element) element.classList.add("responsive");
       }
     }
   }, [windowSize]);
@@ -41,7 +45,7 @@ function Layout(props: PropsInterface) {
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }
+    };
 
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -52,15 +56,16 @@ function Layout(props: PropsInterface) {
   }, []);
 
   const handleClose = () => {
-    if (isOpenMenu === true) {
-      setIsOpenMenu(!isOpenMenu);
-    }
+    setIsOpenMenu(false);
+    if (toggle) toggle.classList.remove("toggle-transformed");
+    if (element) element.classList.add("responsive");
   };
   const onClickToggle = () => {
-    const element = document.getElementById("nav-list");
-    if (element !== null && element !== undefined) {
-      setIsOpenMenu(!isOpenMenu);
-      element.classList.toggle("responsive");
+    if (windowSize) {
+      if (element !== null && element !== undefined) {
+        setIsOpenMenu(!isOpenMenu);
+        element.classList.toggle("responsive")
+      }
     }
   };
 
