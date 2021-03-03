@@ -21,11 +21,6 @@ describe('Requester functions API',() => {
       }
     };
     expect.assertions(1);
-<<<<<<< HEAD
     await expect(requester.get(endpoint)).resolves.toMatchObject(data);
-=======
-    await expect(requester.get(endpoint)).resolves.toEqual(data);
-
->>>>>>> Feat/add test (#16)
   });
 });
