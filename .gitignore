@@ -10,6 +10,7 @@
 
 # production
 /build
+/aqueous-citadel-19471
 
 # misc
 .DS_Store
