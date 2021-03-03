@@ -1,6 +1,10 @@
 let enviroment = '';
 if (process.env.NODE_ENV === 'development') {
+<<<<<<< HEAD
     enviroment = 'https://fake-json-server-app.herokuapp.com';
+=======
+    enviroment = 'http://localhost:3000/';
+>>>>>>> Feat/rebase remote changes (#19)
 } else {
     enviroment = 'https://fake-json-server-app.herokuapp.com';
 }
