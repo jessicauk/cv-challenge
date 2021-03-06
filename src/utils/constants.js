@@ -1,6 +1,6 @@
 let enviroment = '';
 if (process.env.NODE_ENV === 'development') {
-    enviroment = 'http://localhost:3000/';
+    enviroment = 'https://fake-json-server-app.herokuapp.com';
 } else {
     enviroment = 'https://fake-json-server-app.herokuapp.com';
 }
