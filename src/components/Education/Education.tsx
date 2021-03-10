@@ -139,12 +139,15 @@ function Education() {
         dataCertification.map((itemCertification) => {
           return (
             <Licences
+              isVisibleDelete
+              isVisibleEdit
               key={itemCertification.id}
               keyCert={itemCertification.key}
               description={itemCertification.description ? itemCertification.description[idLanguage]: ''}
               registred={itemCertification.registred}
               title={itemCertification.title ? itemCertification.title[idLanguage]: ''}
               id={itemCertification.id}
+              handleClick={() => {}}
             />
           );
         })}
