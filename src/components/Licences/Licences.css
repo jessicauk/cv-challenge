@@ -10,12 +10,12 @@
 }
 .licences-container .item {
   display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .licences-container .title {
-  text-align: justify;
+  text-align: center;
   font-size: 24px;
   line-height: 28px;
   letter-spacing: 0.18%;
@@ -25,7 +25,7 @@
 .licences-container .item img {
   height: 98px;
   width: 147px;
-  margin-right: 24px;
+  margin: 2em;
 }
 .content h3 {
   text-align: left;
@@ -52,8 +52,15 @@
 @media screen and (min-width: 1024px) {
   .licences-container .item {
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     flex-direction: row;
+    align-items: start;
+  }
+  .licences-container .title {
+    text-align: justify;
+  }
+  .licences-container .item img {
+    margin: 0 2em 0 0;
   }
   .licences-container {
     padding: 20px 20px;

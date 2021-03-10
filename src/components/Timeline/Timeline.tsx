@@ -106,7 +106,7 @@ const Timeline: React.FC<Props> = ({
               <div className="title">
                 <h1>
                   {school || title}
-                  <span>{location}</span>
+                  <span className="span" >{location}</span>
                 </h1>
                 <div className="buttons-actions">
                   {isVisibleDelete === true && (

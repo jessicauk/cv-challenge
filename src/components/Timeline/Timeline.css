@@ -65,11 +65,6 @@
   font-size: 16px;
   margin-left: 5px;
 }
-.timeline .timeline-item .content span {
-  color: var(--gray);
-  font-size: 16px;
-  margin-left: 5px;
-}
 .timeline .timeline-item .content .date-content {
   text-align: justify;
   display: inline-block;
@@ -87,7 +82,7 @@
 .timeline .timeline-item .content .description {
   width: 100%
 }
-.timeline .timeline-item .content .description span {
+.timeline .timeline-item .content .description .span {
   margin-left: 16px;
 }
 .timeline-item .content .description .title{
