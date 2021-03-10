@@ -15,11 +15,22 @@
   align-items: center;
 }
 .licences-container .title {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+.licences-container .title .p {
+  text-align: justify;
   font-size: 24px;
   line-height: 28px;
   letter-spacing: 0.18%;
   color: var(--black);
+  margin-bottom: 24px;
+  flex: 2 1;
+  padding-top: 12px;
+}
+.licences-container .title .buttons-actions {
   margin-bottom: 24px;
 }
 .licences-container .item img {
