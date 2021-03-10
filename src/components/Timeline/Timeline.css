@@ -56,6 +56,7 @@
 .timeline .timeline-item .content h1 {
   font-size: 20px;
   text-align: left;
+  flex: 2;
 }
 .timeline .description p {
   text-align: justify;
@@ -100,6 +101,7 @@
 .timeline-item .description p {
   font-size: 14px;
   line-height: 20px;
+  width: 80%;
 }
 .timeline-item .description .company {
   font-size: 16px;
@@ -135,6 +137,9 @@
     text-align: justify;
     margin-left: 4em;
     display: block;
+  }
+  .timeline-item .description p {
+    width: 100%;
   }
 }
 

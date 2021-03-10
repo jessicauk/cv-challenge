@@ -31,15 +31,8 @@ const Licences: React.FC<Props> = ({
   return (
     <article className="licences">
       <div className="licences-container">
-        <p className="title">{title}</p>
-        <div className="item">
-          <img src={process.env.PUBLIC_URL + "/assets/licence.png"} alt="" />
-          <div className="content">
-            <h3>{description}</h3>
-            <p>{description}</p>
-            <p>{`Aplicado en ${registredFormat}`}</p>
-            <p>{`ID Credencial ${keyCert}`}</p>
-          </div>
+        <div className="title">
+          <p className="p">{title}</p>
           <div className="buttons-actions">
             {isVisibleDelete === true && (
               <IconButton
@@ -60,6 +53,15 @@ const Licences: React.FC<Props> = ({
                 <CreateIcon />
               </IconButton>
             )}
+          </div>
+        </div>
+        <div className="item">
+          <img src={process.env.PUBLIC_URL + "/assets/licence.png"} alt="" />
+          <div className="content">
+            <h3>{description}</h3>
+            <p>{description}</p>
+            <p>{`Aplicado en ${registredFormat}`}</p>
+            <p>{`ID Credencial ${keyCert}`}</p>
           </div>
         </div>
       </div>

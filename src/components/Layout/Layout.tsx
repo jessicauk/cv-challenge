@@ -56,9 +56,13 @@ function Layout(props: PropsInterface) {
   }, []);
 
   const handleClose = () => {
-    setIsOpenMenu(false);
-    if (toggle) toggle.classList.remove("toggle-transformed");
-    if (element) element.classList.add("responsive");
+    if (windowSize) {
+      if (windowSize.width && windowSize.width < 1024) {
+        setIsOpenMenu(false);
+        if (toggle) toggle.classList.remove("toggle-transformed");
+        if (element) element.classList.add("responsive");
+      }
+    }
   };
   const onClickToggle = () => {
     if (windowSize) {
