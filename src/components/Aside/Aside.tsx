@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import ReactFlagsSelect from 'react-flags-select';
+import IconButton from "@material-ui/core/IconButton";
+import CreateIcon from "@material-ui/icons/Create";
 import { PROFILE, LANGUAGES } from "../../utils/constants";
-import { get } from "../../utils/Requester";
+import { get, post } from "../../utils/Requester";
 import { setLanguageCode } from "../../utils/Functions";
 import { US } from "../../utils/constants";
 import LayoutContext from '../Layout/LayoutContext';
@@ -60,6 +62,10 @@ function Aside() {
     const response = await get(PROFILE);
     setData(response);
   };
+  const postData = async (dataParam:Profile) => {
+    const dataObject = {...dataParam}
+    await post(PROFILE, dataObject);
+  }
   const getLanguagesCatalog = async () => {
     const response = await get(LANGUAGES);
     setLanguagesCatalog(response);
@@ -86,26 +92,41 @@ function Aside() {
               src={process.env.PUBLIC_URL + "/assets/vector-line2.png"}
               alt=""
             />
-            <img src={process.env.PUBLIC_URL + "/assets/blob-2.svg"} alt="" />
+            <img src={process.env.PUBLIC_URL + "/assets/blob.svg"} alt="" />
+            
           </div>
-          <img className="picture" src={process.env.PUBLIC_URL + "/assets/profile-picture.png"} alt="" />
+          <img
+            className="picture"
+            src={process.env.PUBLIC_URL + "/assets/profile-picture.png"}
+            alt=""
+          />
         </div>
-        <ReactFlagsSelect
-          countries={["US", "ES"]}
-          customLabels={{"US": "EN", "ES": "ES"}}
-          selected={selected}
-          onSelect={code => {
-            setIdLanguage(setLanguageCode(code.toLowerCase()));
-            setSelected(code)
+        <div className="flex-container">
+          <ReactFlagsSelect
+            countries={["US", "ES"]}
+            customLabels={{ US: "EN", ES: "ES" }}
+            selected={selected}
+            onSelect={(code) => {
+              setIdLanguage(setLanguageCode(code.toLowerCase()));
+              setSelected(code);
+            }}
+          />
+          <IconButton
+          aria-label="Edit"
+          className="btn-edit"
+          onClick={async () => {
+            console.log("click edit");
           }}
-          
-        />
+        >
+          <CreateIcon />
+        </IconButton>
+        </div>
+        
         <div className="profile-information">
+        
           <h1>{data.firstName}</h1>
           <h3>{data.lastName}</h3>
-          <p className="about">
-            {aboutMeTranslate}
-          </p>
+          <p className="about">{aboutMeTranslate}</p>
           <div className="profile-contact">
             <h3>Contacto</h3>
             <p>
