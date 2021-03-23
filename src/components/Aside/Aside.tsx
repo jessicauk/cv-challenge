@@ -1,33 +1,31 @@
 import React, { useEffect, useState, useContext } from "react";
-import ReactFlagsSelect from 'react-flags-select';
+import ReactFlagsSelect from "react-flags-select";
 import IconButton from "@material-ui/core/IconButton";
 import CreateIcon from "@material-ui/icons/Create";
 import { PROFILE, LANGUAGES } from "../../utils/constants";
 import { get, post } from "../../utils/Requester";
 import { setLanguageCode } from "../../utils/Functions";
 import { US } from "../../utils/constants";
-import LayoutContext from '../Layout/LayoutContext';
+import LayoutContext from "../Layout/LayoutContext";
 import "./Aside.css";
 
-
-
-export interface TranslateValue{
+export interface TranslateValue {
   en: string;
   es: string;
-};
-export interface Languages{
+}
+export interface Languages {
   id: number;
   label: TranslateValue;
   percentage?: number;
-};
-export interface Translate<TranslateValue>{
-  [key:string]: TranslateValue;
-};
+}
+export interface Translate<TranslateValue> {
+  [key: string]: TranslateValue;
+}
 interface Contact {
   email: string | undefined;
   linkedin: string | undefined;
   phone: string | undefined;
-};
+}
 
 interface Profile {
   picture: string | undefined;
@@ -35,26 +33,26 @@ interface Profile {
   lastName: string | undefined;
   contact: Contact;
   aboutMe: Translate<string>;
-};
+}
 
 function Aside() {
   const ContextLayout = useContext(LayoutContext);
   const { idLanguage, setIdLanguage } = ContextLayout;
-  const [ languagesCatalog, setLanguagesCatalog ] = useState<Languages[]>([]);
+  const [languagesCatalog, setLanguagesCatalog] = useState<Languages[]>([]);
 
   const [data, setData] = useState<Profile>({
-    picture: '',
-    firstName: '',
-    lastName: '',
+    picture: "",
+    firstName: "",
+    lastName: "",
     contact: {
-      email: '',
-      linkedin: '',
-      phone: '',
+      email: "",
+      linkedin: "",
+      phone: "",
     },
     aboutMe: {
-      en: '',
-      es: '',
-    }
+      en: "",
+      es: "",
+    },
   });
   const [selected, setSelected] = useState<string>(US.toUpperCase());
 
@@ -62,10 +60,10 @@ function Aside() {
     const response = await get(PROFILE);
     setData(response);
   };
-  const postData = async (dataParam:Profile) => {
-    const dataObject = {...dataParam}
+  const postData = async (dataParam: Profile) => {
+    const dataObject = { ...dataParam };
     await post(PROFILE, dataObject);
-  }
+  };
   const getLanguagesCatalog = async () => {
     const response = await get(LANGUAGES);
     setLanguagesCatalog(response);
@@ -75,8 +73,8 @@ function Aside() {
     getLanguagesCatalog();
   }, []);
 
-  const {email, linkedin, phone}  = data.contact;
-  const aboutMeTranslate  = data.aboutMe[idLanguage];
+  const { email, linkedin, phone } = data.contact;
+  const aboutMeTranslate = data.aboutMe[idLanguage];
 
   return (
     <aside className="aside">
@@ -93,7 +91,6 @@ function Aside() {
               alt=""
             />
             <img src={process.env.PUBLIC_URL + "/assets/blob.svg"} alt="" />
-            
           </div>
           <img
             className="picture"
@@ -112,18 +109,17 @@ function Aside() {
             }}
           />
           <IconButton
-          aria-label="Edit"
-          className="btn-edit"
-          onClick={async () => {
-            console.log("click edit");
-          }}
-        >
-          <CreateIcon />
-        </IconButton>
+            aria-label="Edit"
+            className="btn-edit"
+            onClick={async () => {
+              console.log("click edit");
+            }}
+          >
+            <CreateIcon />
+          </IconButton>
         </div>
-        
+
         <div className="profile-information">
-        
           <h1>{data.firstName}</h1>
           <h3>{data.lastName}</h3>
           <p className="about">{aboutMeTranslate}</p>
