@@ -1,0 +1,48 @@
+version: 2.1
+
+executors:
+  node:
+    docker:
+      - image: circleci/node:12.16.1
+
+commands:
+  install_dependencies:
+    description: 'Install Dependencies'
+    steps:
+      - run:
+          name: 'Install Dependencies'
+          command: npm install
+
+jobs:
+  generate_release:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: 'Generate Release'
+          command: |
+            sudo npm i -g @semantic-release/changelog @semantic-release/git semantic-release
+            semantic-release
+  run_test:
+    executor: node
+    steps:
+      - checkout
+      - install_dependencies
+      - run:
+          name: 'Run Tests'
+          command: npm test
+
+workflows:
+  development:
+    jobs:
+      - run_test:
+          filters:
+            branches:
+              ignore: main
+
+  production:
+    jobs:
+      - generate_release:
+          filters:
+            branches:
+              only: main
